@@ -1,0 +1,199 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="card card-user">
+      <div class="image">
+        <img src="assets/img/damir-bosnjak.jpg" alt="...">
+      </div>
+      <div class="card-body">
+        <div class="author">
+          <a href="#">
+            <img class="avatar border-gray" [src]="getImageStr(emp.Images)" alt="...">
+            <h5 class="title"> {{emp.Name}} </h5>
+          </a> 
+          <div>
+            <p class="description">
+              {{emp.Email}}
+            </p>
+          </div>          
+        </div>
+      </div>
+      <div class="card-footer">
+        <hr>
+        <div class="button-container">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 col-6 ml-auto">
+              <h5>12
+                <br>
+                <small>Files</small>
+              </h5>
+            </div>
+            <div class="col-lg-4 col-md-6 col-6 ml-auto mr-auto">
+              <h5>2GB
+                <br>
+                <small>Used</small>
+              </h5>
+            </div>
+            <div class="col-lg-3 mr-auto">
+              <h5>24,6$
+                <br>
+                <small>Spent</small>
+              </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Leave Balance</h4>
+      </div>
+      <div class="card-body">
+        <ul class="list-unstyled team-members">
+          <li>
+            <div class="row">
+              <div class="col-md-2 col-2">
+                <div class="avatar">
+                  <i class="fa fa-fighter-jet" aria-hidden="true"></i>
+                </div>
+              </div>
+              <!-- Leave Balance Details -->
+              <ng-container *ngFor="let leave of leaveBalance">
+                <div class="col-md-10 col-10">
+                  <div> {{leave.AbsenceCodeDescription}} </div>
+                  <span class="text-muted">
+                    <small>{{leave.AbsenceDays | number : '1.2-2'}}</small>
+                  </span>
+                </div>                 
+              </ng-container>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <div class="card card-user">
+      <div class="card-header">
+        <h5 class="card-title">Personal Details</h5>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Date of Birth</label>
+              <input type="text" class="form-control" disabled="" placeholder="Date of Birth"
+                [value]="getDOB(emp.DateOfBirth)">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Gender</label>
+              <input type="text" class="form-control" disabled="" placeholder="" [(ngModel)]="emp.Gender">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Marital Status</label>
+              <input type="text" class="form-control" disabled="" placeholder="" [(ngModel)]="emp.MaritalStatus">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Nationality</label>
+              <input type="text" class="form-control" disabled="" placeholder="" [(ngModel)]="emp.Nationality">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>Address</label>
+              <input type="text" class="form-control" disabled="" placeholder="Home Address" [(ngModel)]="emp.Address">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="card card-user">
+      <div class="card-header">
+        <h5 class="card-title">Job Details</h5>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Employee Id</label>
+              <input type="text" class="form-control" disabled="" placeholder="Emaployee Id" [(ngModel)]="emp.EmpId">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Job Title></label>
+              <input type="text" class="form-control" disabled="" placeholder="Job Title" [(ngModel)]="emp.JobTitle">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Department</label>
+              <input type="text" class="form-control" disabled="" placeholder="Department" [(ngModel)]="emp.Department">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Reporting Manager</label>
+              <input type="text" class="form-control" disabled="" placeholder="Reporting Manager"
+                [(ngModel)]="emp.ReportingManager">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>Joining Date</label>
+              <input type="text" class="form-control" disabled="" placeholder="Joining Date"
+                [value]="getDOB(emp.JoiningDate)">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="card card-user">
+      <div class="card-header">
+        <h5 class="card-title">Document Details</h5>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Passport No</label>
+              <input type="text" class="form-control" disabled="" placeholder="Passport No"
+                [(ngModel)]="emp.PassportNumber">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Issue Date</label>
+              <input type="text" class="form-control" disabled="" placeholder="Issue Date"
+                [value]="getDOB(emp.PassportIssueDate)">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>ExpiryDate</label>
+              <input type="text" class="form-control" disabled="" placeholder="Expiry Date"
+                [value]="getDOB(emp.PassportExpiryDate)">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>     
+  </div>
+</div>
